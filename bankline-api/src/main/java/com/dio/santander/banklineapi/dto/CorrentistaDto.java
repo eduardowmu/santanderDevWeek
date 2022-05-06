@@ -24,6 +24,15 @@ public class CorrentistaDto implements Serializable {
 	private String nome;
 	private Conta conta;
 	
+	public CorrentistaDto() {}
+
+	public CorrentistaDto(Integer id, String cpf, String nome, Conta conta) {
+		this.id = id;
+		this.cpf = cpf;
+		this.nome = nome;
+		this.conta = conta;
+	}
+
 	public CorrentistaDto(Correntista c) {
 		this.id = c.getId();
 		this.cpf = c.getCpf();
