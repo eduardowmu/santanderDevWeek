@@ -49,11 +49,11 @@ public class MovimentacaoService {
 		Double valor = mDto.getTipo() == MovimentacaoTipo.RECEITA ? mDto.getValor() : -1 * mDto.getValor();
 		m.setValor(valor);
 		
-		Optional<Correntista> c = this.cRepository.findById(mDto.getIdConta());
+		Correntista c = this.cRepository.findById(mDto.getIdConta()).orElse(null);
 		
-		if(c.isPresent()) {
-			c.get().getConta().setSaldo(c.get().getConta().getSaldo() + valor);
-			this.cRepository.save(c.get());
+		if(!c.equals(null)) {
+			c.getConta().setSaldo(c.getConta().getSaldo() + valor);
+			this.cRepository.save(c);
 		}
 		
 		return  m;
