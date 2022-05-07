@@ -540,3 +540,18 @@ Binding(CTRL+R,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.debug.ui.console,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-05-06 00:00:50.632
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.QXyOyFoP
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-05-06 00:00:50.632
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.QXyOyFoP
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-05-06 00:00:50.633
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-05-06 00:00:50.634
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.QXyOyFoP => OK
+
+!ENTRY org.eclipse.ui 2 2 2022-05-06 00:00:50.895
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
