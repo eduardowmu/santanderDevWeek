@@ -13,4 +13,12 @@ export class MovimementacoesService {
   list(): Observable<any> {
     return this.http.get(`${baseUrl}/movimentacoes/list`);
   }
+
+  findByIdConta(idConta:any): Observable<any> {
+    return this.http.get(`${baseUrl}/movimentacoes/${idConta}`);
+  }
+
+  create(movimentacao:any): Observable<any> {
+    return this.http.post(`${baseUrl}/movimentacoes/create`,movimentacao);
+  }
 }

@@ -34,6 +34,14 @@ public class MovimentacaoService {
 		return list;
 	}
 	
+
+	public List<MovimentacaoDto> findByIdConta(Integer idConta) {
+		List<Movimentacao> movimentacoes = this.repository.findByIdConta(idConta);
+		List<MovimentacaoDto> list = new ArrayList<>();
+		movimentacoes.forEach(m -> list.add(new MovimentacaoDto(m)));
+		return list;
+	}
+	
 	public MovimentacaoDto create(MovimentacaoDto mDto) {
 		Movimentacao m = this.toMovimentacao(mDto);
 		return new MovimentacaoDto(this.repository.save(m));

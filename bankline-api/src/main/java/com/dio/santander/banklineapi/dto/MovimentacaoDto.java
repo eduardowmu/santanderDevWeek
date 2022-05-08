@@ -1,7 +1,8 @@
 package com.dio.santander.banklineapi.dto;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.EnumType;
@@ -15,7 +16,7 @@ import com.dio.santander.banklineapi.model.MovimentacaoTipo;
 
 public class MovimentacaoDto implements Serializable{
 	private Integer id;
-	private LocalDateTime dataHora;
+	private String dataHora;
 	private String descricao;
 	private Double valor;
 	private MovimentacaoTipo tipo;
@@ -23,7 +24,7 @@ public class MovimentacaoDto implements Serializable{
 	
 	public MovimentacaoDto() {}
 
-	public MovimentacaoDto(Integer id, LocalDateTime dataHora, String descricao, Double valor, MovimentacaoTipo tipo,
+	public MovimentacaoDto(Integer id, String dataHora, String descricao, Double valor, MovimentacaoTipo tipo,
 			Integer idConta) {
 		this.id = id;
 		this.dataHora = dataHora;
@@ -35,7 +36,7 @@ public class MovimentacaoDto implements Serializable{
 
 	public MovimentacaoDto(Movimentacao m) {
 		this.id = m.getId();
-		this.dataHora = m.getDataHora();
+		this.dataHora = m.getDataHora().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
 		this.descricao = m.getDescricao();
 		this.valor = m.getValor();
 		this.tipo = m.getTipo();
@@ -50,11 +51,11 @@ public class MovimentacaoDto implements Serializable{
 		this.id = id;
 	}
 
-	public LocalDateTime getDataHora() {
+	public String getDataHora() {
 		return dataHora;
 	}
 
-	public void setDataHora(LocalDateTime dataHora) {
+	public void setDataHora(String dataHora) {
 		this.dataHora = dataHora;
 	}
 
