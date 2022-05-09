@@ -1630,3 +1630,4 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.webjars:s
 2022-05-07 22:34:54,558 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-05-07 22:34:54,558 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2022-05-07 22:34:54,558 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/eduardowmu/Documentos/DIO/santander/Santander2022/santanderDevWeek/bankline-api/src/test/resources
+2022-05-08 23:42:37,578 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
