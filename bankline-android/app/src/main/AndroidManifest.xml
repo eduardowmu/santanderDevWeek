@@ -11,14 +11,14 @@
         android:theme="@style/Theme.Banklineandroid">
         <activity android:name=".statement.BankStatementActivity"
                 android:exported="false"
-                android:parentActivityName=".welcome.MainActivity">
+                android:parentActivityName=".statement.BankStatementActivity">
+        </activity>
+        <activity android:name=".welcome.MainActivity"
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".welcome.MainActivity"
-                android:exported="true">
         </activity>
     </application>
 
