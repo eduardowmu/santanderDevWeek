@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">bankline-android</string>
+    <string name="app_name" translatable="false">SDW 22</string>
     <string name="txt_hello_world">Hello, welcome to Santander Dev Week! Enter an AccountHolder ID to view your banck statement</string>
     <string name="txtContinue">Continue</string>
 </resources>
