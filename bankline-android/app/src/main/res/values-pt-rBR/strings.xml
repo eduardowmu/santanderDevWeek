@@ -2,4 +2,5 @@
 <resources>
     <string name="txt_hello_world">Ola, bem vindo(a) ao Santander Dev Week! Digite um ID do Correntista para visualizar seu extrato bancario.</string>
     <string name="txtContinue">Continuar</string>
+    <string name="txt_account_holder_id">ID do Correntista</string>
 </resources>
