@@ -18,40 +18,51 @@ import br.com.crud.design.patherns.strategy.ValidateNascimento;
 public class StudentFacade implements IFacade {
 	@Autowired
 	private StudentRepository studentRepository;
-	private Map<String, Map<String, List<IStrategy>>> businessRules;
+	Map<String, List<IStrategy>> studentBusiness;
 	private static final String SAVE = "save";
 	private static final String LIST = "list";
 	
 	public StudentFacade() {
-		businessRules = new HashMap<>();
-		
 		//Validações para salvar/alterar estudantes
 		ValidateName vn = new ValidateName();
 		ValidateNascimento vnt = new ValidateNascimento();
 		ValidateEmail ve = new ValidateEmail();
 		
 		//Instanciando listas de validações para salvar/alterar e listar Estudantes
-		List<IStrategy> saveStudentBusiness = new ArrayList<>();
-		List<IStrategy> listStudentBusiness = new ArrayList<>();
+		List<IStrategy> saveStudentBusinessList = new ArrayList<>();
+		List<IStrategy> listStudentBusinessList = new ArrayList<>();
 		
-		//criando a lista de regras para cada evento
-		saveStudentBusiness.add(vn);
-		saveStudentBusiness.add(vnt);
-		saveStudentBusiness.add(ve);
+		/*criando a lista de regras para cada evento. Neste caso não teremos regras
+		 *para listagem de estudantes*/
+		saveStudentBusinessList.add(vn);
+		saveStudentBusinessList.add(vnt);
+		saveStudentBusinessList.add(ve);
 		
 		//Intanciando as integrações de todas as regras de todos os eventos para estudantes
-		Map<String, List<IStrategy>> studentBusiness = new HashMap<>();
+		studentBusiness = new HashMap<>();
 		
 		//Ligando todas as validações para cada evento
-		studentBusiness.put(SAVE, saveStudentBusiness);
-		studentBusiness.put(LIST, listStudentBusiness);
-		
-		
+		studentBusiness.put(SAVE, saveStudentBusinessList);
+		studentBusiness.put(LIST, listStudentBusinessList);
+	}
+	
+	/*Processamento de todas as regras do evento selecionado*/
+	private Student executeRules(Student student, String event) {
+		if(!this.studentBusiness.isEmpty()) {
+			List<IStrategy> rules = this.studentBusiness.get(event);
+			for(IStrategy rule : rules) {
+				if(rule.process(student) != null) continue;
+				else break;
+			}
+			return student;
+		}
+		return null;
 	}
 	
 	@Override
 	public Student save(Object obj) {
-		return this.studentRepository.save((Student)obj);
+		Student student = this.executeRules((Student)obj, SAVE);
+		return student != null ? this.studentRepository.save(student) : null;
 	}
 
 	@Override
